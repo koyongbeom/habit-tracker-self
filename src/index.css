@@ -34,6 +34,11 @@ code {
   margin-right: 20px;
 }
 
+.button {
+  cursor: pointer;
+  outline: none;
+}
+
 .button-plus,
 .button-minus {
   color: #d59b1d;
