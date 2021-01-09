@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+li {
+  list-style: none;
+}
+
 .header {
   display: flex;
   align-items: center;

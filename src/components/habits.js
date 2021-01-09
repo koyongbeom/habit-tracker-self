@@ -2,18 +2,30 @@ import React, { Component } from "react";
 import Habit from "./habit";
 
 class Habits extends Component {
+  countUp = (habit) => {
+    this.props.increment(habit);
+  };
+
+  countDown = (habit) => {
+    this.props.decrement(habit);
+  };
+
+  trash = (habit) => {
+    this.props.delete(habit);
+  };
+
   render() {
     return (
       <div>
-        {
+        {this.props.habits.map((habit) => (
           <Habit
-            habit={this.props.habit}
-            increment={this.props.increment}
-            decrement={this.props.decrement}
-            delete={this.props.delete}
-            key={this.props.key}
+            habit={habit}
+            increment={this.countUp}
+            decrement={this.countDown}
+            delete={this.trash}
+            key={habit.id}
           ></Habit>
-        }
+        ))}
       </div>
     );
   }

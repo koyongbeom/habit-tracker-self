@@ -46,21 +46,20 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div class="header">
-          <i class="fas fa-leaf fa-2x"></i>
-          <span class="header-text">Habit Tracker</span>
-          <span class="header-count">{this.state.headercount}</span>
-        </div>
+        <header className="header">
+          <i className="fas fa-leaf fa-2x"></i>
+          <span className="header-text">Habit Tracker</span>
+          <span className="header-count">{this.state.headercount}</span>
+        </header>
         <div>
-          {this.state.habits.map((habit) => (
+          {
             <Habits
-              habit={habit}
+              habits={this.state.habits}
               increment={this.countUp}
               decrement={this.countDown}
               delete={this.trash}
-              key={habit.id}
             ></Habits>
-          ))}
+          }
         </div>
       </div>
     );
