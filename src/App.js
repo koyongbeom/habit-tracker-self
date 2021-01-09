@@ -16,6 +16,17 @@ class App extends Component {
     headercount: 0,
   };
 
+  plusHabit = (extraHabitName) => {
+    const habits = [...this.state.habits];
+    const extraHabit = {
+      name: extraHabitName,
+      count: 0,
+      id: this.state.habits.length + 1,
+    };
+    habits.push(extraHabit);
+    this.setState({ habits: habits });
+  };
+
   countUp = (habit) => {
     const habits = [...this.state.habits];
     const index = habits.indexOf(habit);
@@ -61,6 +72,7 @@ class App extends Component {
         <div>
           <Habits
             habits={this.state.habits}
+            addition={this.plusHabit}
             increment={this.countUp}
             decrement={this.countDown}
             delete={this.trash}
