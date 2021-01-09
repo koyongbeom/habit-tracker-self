@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import "./App.css";
 import Habits from "./components/habits";
 import { faRunning } from "@fortawesome/free-solid-svg-icons";
+import Habit from "./components/habit";
+import Headerbar from "./components/headerbar";
 
 class App extends Component {
   state = {
@@ -43,23 +45,31 @@ class App extends Component {
     this.setState({ habits: habits, headercount: headercount });
   };
 
+  resetAll = () => {
+    const habits = [];
+    this.setState({ habits: habits, headercount: 0 });
+  };
+
   render() {
     return (
       <div>
-        <header className="header">
-          <i className="fas fa-leaf fa-2x"></i>
-          <span className="header-text">Habit Tracker</span>
-          <span className="header-count">{this.state.headercount}</span>
-        </header>
-        <div>
-          {
-            <Habits
-              habits={this.state.habits}
-              increment={this.countUp}
-              decrement={this.countDown}
-              delete={this.trash}
-            ></Habits>
+        <Headerbar
+          headercount={
+            this.state.habits.filter((item) => item.count > 0).length
           }
+        ></Headerbar>
+        <div>
+          <Habits
+            habits={this.state.habits}
+            increment={this.countUp}
+            decrement={this.countDown}
+            delete={this.trash}
+          ></Habits>
+        </div>
+        <div className="reset-div">
+          <button className="reset-btn" onClick={this.resetAll}>
+            Reset All
+          </button>
         </div>
       </div>
     );
