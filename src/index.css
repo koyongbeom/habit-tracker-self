@@ -49,7 +49,7 @@ code {
 }
 
 .habit-text {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-right: 10px;
 }
 
@@ -63,7 +63,7 @@ code {
   color: white;
   border-radius: 50%;
   font-size: 2rem;
-  margin-right: 20px;
+  margin-right: 15px;
 }
 
 .button {
